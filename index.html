@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>옵시디언으로 이동 중...</title>
+<style>
+body{font-family:-apple-system,sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;background:#f5f3ff;color:#333}
+.card{text-align:center;padding:2rem;border-radius:12px;background:white;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+a{display:inline-block;margin-top:1rem;padding:10px 24px;background:#7c3aed;color:white;text-decoration:none;border-radius:8px;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>옵시디언으로 이동 중...</h2>
+<p>자동으로 열리지 않으면 아래 버튼을 눌러주세요.</p>
+<a id="btn" href="#">옵시디언에서 열기</a>
+</div>
+<script>
+const params = new URLSearchParams(window.location.search);
+const file = params.get('file');
+if (file) {
+  const uri = 'obsidian://open?vault=Vault&file=' + encodeURIComponent(file);
+  document.getElementById('btn').href = uri;
+  window.location.href = uri;
+}
+</script>
+</body>
+</html>
