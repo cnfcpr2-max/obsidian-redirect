@@ -19,8 +19,9 @@ a{display:inline-block;margin-top:1rem;padding:10px 24px;background:#7c3aed;colo
 <script>
 const params = new URLSearchParams(window.location.search);
 const file = params.get('file');
+const vault = params.get('vault') || 'Culryman_Vault';
 if (file) {
-  const uri = 'obsidian://open?vault=Vault&file=' + encodeURIComponent(file);
+  const uri = 'obsidian://open?vault=' + encodeURIComponent(vault) + '&file=' + encodeURIComponent(file);
   document.getElementById('btn').href = uri;
   window.location.href = uri;
 }
